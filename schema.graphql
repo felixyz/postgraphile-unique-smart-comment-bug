@@ -6,22 +6,8 @@ type Bar implements Node {
   id: Int!
   name: String
 
-  """Reads and enables pagination through a set of `Foo`."""
-  foosList(
-    """Only read the first `n` values of the set."""
-    first: Int
-
-    """Skip the first `n` values."""
-    offset: Int
-
-    """The method to use when ordering `Foo`."""
-    orderBy: [FoosOrderBy!]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: FooCondition
-  ): [Foo!]!
+  """Reads a single `Foo` that is related to this `Bar`."""
+  foo: Foo
 }
 
 """
@@ -217,6 +203,7 @@ type Query implements Node {
   bar(id: Int!): Bar
   baz(id: Int!): Baz
   foo(id: Int!): Foo
+  fooByBarId(barId: Int!): Foo
 
   """Reads a single `Bar` using its globally unique `ID`."""
   barByNodeId(
