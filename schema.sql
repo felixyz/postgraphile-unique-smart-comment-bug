@@ -35,4 +35,5 @@ comment on view gql.baz is '@primaryKey id';
 comment on view gql.foo is '@primaryKey id
 @foreignKey (bar_id) references bar (id)
 @foreignKey (baz_id) references baz (id)
-@unique bar_id';
+@unique bar_id
+@unique baz_id';
